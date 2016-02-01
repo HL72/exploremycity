@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<models.TakeMeTour>
+  <id>1</id>
+  <morningItem>
+    <id>1</id>
+    <name></name>
+    <description></description>
+    <prix></prix>
+    <imageOne/>
+    <imageTwo/>
+    <imageThree/>
+    <coords></coords>
+  </morningItem>
+  <afternoonItem>
+    <id>2</id>
+    <name></name>
+    <description></description>
+    <prix></prix>
+    <imageOne/>
+    <imageTwo/>
+    <imageThree/>
+    <coords></coords>
+  </afternoonItem>
+  <nightItem>
+    <id>1</id>
+    <name></name>
+    <description></description>
+    <prix></prix>
+    <imageOne/>
+    <imageTwo/>
+    <imageThree/>
+    <coords></coords>
+  </nightItem>
+</models.TakeMeTour>

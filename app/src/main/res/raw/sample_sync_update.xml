@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SynchronizationResponse>
+	<GeographicalAreaList>
+		<GeographicalArea id="1">
+			<name>Nantes</name>
+			<description>(Updated) Nantes est une commune de l'Ouest de la France, située au sud du massif armoricain, qui s'étend sur les rives de la Loire, à 50 km de l'océan Atlantique.</description>
+			<longitude>47.216070</longitude>
+			<latitude>-1.551529</latitude>
+			<createdOn>2014-02-28 19:34:01 GMT</createdOn>
+			<updatedOn>2014-03-28 19:34:01 GMT</updatedOn>
+			<deletedOn>1970-01-01 00:00:00 GMT</deletedOn>
+			<image />
+		</GeographicalArea>
+	</GeographicalAreaList>
+	<ThemeList>
+		<Theme id="4">
+			<name>Pratique (doublon test)</name>
+			<image/>
+			<createdOn>2014-02-28 19:34:01 GMT</createdOn>
+			<updatedOn>2014-02-28 19:34:01 GMT</updatedOn>
+			<deletedOn>1970-01-01 00:00:00 GMT</deletedOn>
+		</Theme>
+	</ThemeList>
+</SynchronizationResponse>

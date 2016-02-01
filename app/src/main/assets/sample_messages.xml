@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<list>
+    <models.Message>
+        <id>1</id>
+        <subject>Lorem ipsum dolor sit amet</subject>
+        <text>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat.</text>
+    </models.Message>
+    <models.Message>
+        <id>2</id>
+        <subject>Local message test 2</subject>
+        <text>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. (2)</text>
+    </models.Message>
+</list>

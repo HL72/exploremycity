@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<color name="menu_background">#FFFFFF</color>
+	<color name="menu_foreground">#333333</color>
+	<color name="menu_foreground_lighter">#666666</color>
+	<color name="menu_highlight">#EEEEEE</color>
+	<color name="menu_divider">#DDDDDD</color>
+	<color name="menu_category_divider">#999999</color>
+	<color name="menu_counter_background">#DDDDDD</color>
+</resources>

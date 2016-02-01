@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/picture"
+        style="@style/AppBaseTheme.TourItemMainImage"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:contentDescription="@null"
+        android:cropToPadding="false"
+        android:src="@drawable/not_found" />
+
+    <TextView
+        android:id="@+id/summary"
+        style="@style/AppBaseTheme.TourItemSummary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/picture"
+        android:layout_centerHorizontal="true"
+        android:text="@string/lorem_ipsum_dolor_sit_amet" />
+
+    <TextView
+        android:id="@+id/description"
+        style="@style/AppBaseTheme.TourItemDescription"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/summary"
+        android:layout_centerHorizontal="true"
+        android:scrollbars="vertical"
+        android:text="@string/lorem_ipsum_paragraph" />
+
+    <GridView
+        android:id="@+id/action_grid_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/activity_horizontal_margin"
+        android:layout_marginRight="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_vertical_margin"
+        android:columnWidth="60dp"
+        android:gravity="center"
+        android:horizontalSpacing="2dp"
+        android:numColumns="auto_fit"
+        android:scrollbars="none"
+        android:stretchMode="columnWidth" />
+
+</RelativeLayout>

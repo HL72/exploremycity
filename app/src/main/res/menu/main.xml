@@ -1,0 +1,18 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <item android:id="@+id/action_home"
+          android:icon="@drawable/ic_action_home"
+          android:title="@string/action_home"
+          android:showAsAction="ifRoom" />
+    
+    <item android:id="@+id/action_connection"
+          android:icon="@drawable/ic_action_flash_on"
+          android:title="@string/action_connection_mode"
+          android:showAsAction="ifRoom" />
+    
+    <item android:id="@+id/action_bookmark"
+          android:icon="@drawable/ic_action_bookmark"
+          android:title="@string/action_bookmark"
+          android:showAsAction="ifRoom" />
+
+</menu>

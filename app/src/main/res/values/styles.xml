@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!--
+	Base application theme, dependent on API level. This theme is replaced
+	by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="@android:style/Theme.Holo.Light">
+        <item name="android:actionButtonStyle">@style/AppBaseTheme.ActionButtonStyle</item>
+    </style>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme"></style>
+
+    <!-- Action bar -->
+    <style name="AppBaseTheme.ActionButtonStyle" parent="@android:style/Widget.Holo.Light.ActionButton">
+        <item name="android:minWidth">0dip</item>
+        <item name="android:paddingLeft">0dip</item>
+        <item name="android:paddingRight">8dip</item>
+    </style>
+
+    <!-- Navigation -->
+    <style name="AppBaseTheme.NavigationLabel">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceMedium</item>
+        <item name="android:textColor">@color/menu_foreground</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="AppBaseTheme.NavigationSubLabel">
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:textAppearance">?android:attr/textAppearanceSmall</item>
+        <item name="android:textColor">@color/menu_foreground_lighter</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+    <style name="AppBaseTheme.NavigationCounter">
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginRight">8dp</item>
+        <item name="android:background">@drawable/list_item_counter_background</item>
+        <item name="android:text">@integer/card_flip_time_full</item>
+        <item name="android:textColor">@color/menu_foreground</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    
+    <!-- ListView -->
+    <style name="AppBaseTheme.ListView">
+		<item name="android:divider">@color/menu_divider</item>
+		<item name="android:dividerHeight">1dp</item>
+		<item name="android:listSelector">@drawable/list_item_selector</item>
+    </style>
+    
+    <style name="AppBaseTheme.ListViewItemName" parent="@style/AppBaseTheme.NavigationLabel">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textStyle">bold</item>        
+    </style>
+    
+    <style name="AppBaseTheme.ListViewItemPeriod" parent="@style/AppBaseTheme.NavigationLabel">
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:textStyle">italic</item>        
+    </style>
+    
+    <style name="AppBaseTheme.ListViewItemCounter" parent="@style/AppBaseTheme.NavigationCounter">
+        <item name="android:layout_marginRight">12dp</item>
+    </style>
+    
+    <style name="AppBaseTheme.ListViewItemDescription" parent="@style/AppBaseTheme.NavigationSubLabel">
+        <item name="android:layout_marginRight">50dp</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">3</item>
+    </style>
+    
+    <style name="AppBaseTheme.ListViewItemImage">
+        <item name="android:padding">6dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_height">70dp</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:background">@drawable/drop_shadow</item>
+        <item name="android:cropToPadding">true</item>
+        <item name="android:scaleType">centerCrop</item>
+	</style>
+	
+    <!--  TourItem Fragment -->
+    <style name="AppBaseTheme.TourItemMainImage">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:cropToPadding">true</item>
+        <item name="android:adjustViewBounds">true</item>
+    </style>
+    
+    <style name="AppBaseTheme.TourItemSummary">
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginTop">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    
+    <style name="AppBaseTheme.TourItemDescription">
+        <item name="android:layout_marginBottom">@dimen/activity_vertical_margin</item>
+        <item name="android:layout_marginRight">@dimen/activity_horizontal_margin</item>
+        <item name="android:layout_marginLeft">@dimen/activity_horizontal_margin</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+    
+    <style name="AppBaseTheme.TourItemActionImage">
+        <item name="android:scaleType">centerCrop</item>
+        <item name="android:cropToPadding">true</item>
+        <item name="android:adjustViewBounds">true</item>        
+    </style>
+
+</resources>
