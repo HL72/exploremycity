@@ -13,9 +13,9 @@
     <string name="localTakeMeATourService" translatable="false">sample_tmt.xml</string>
 
     <!-- Fake services URL -->
-    <string name="fakeFirstSyncService" translatable="false">http://projects.hodor.ninja/tourapp/sample_sync.xml</string>
-    <!-- <string name="fakeUpdateSyncService">http://labs.kioube.com/api/sample_sync_update.xml</string>
-    <string name="fakeDeleteSyncService">http://labs.kioube.com/api/sample_sync_delete.xml</string>-->
+    <string name="fakeFirstSyncService" translatable="false">http://labs.kioube.com/api/sample_sync.xml</string>
+    <string name="fakeUpdateSyncService">http://labs.kioube.com/api/sample_sync_update.xml</string>
+    <string name="fakeDeleteSyncService">http://labs.kioube.com/api/sample_sync_delete.xml</string>
     <string name="fakeMessageService" translatable="false">http://projects.hodor.ninja/tourapp/sample_messages.xml</string>
     <string name="fakeTakeMeATourService" translatable="false">http://projects.hodor.ninja/tourapp/sample_tmt.xml</string>
     
