@@ -345,12 +345,12 @@ public class MainActivity extends Activity {
 		// Activate the application icon as home button
 		this.getActionBar().setDisplayHomeAsUpEnabled(true);
 		this.getActionBar().setHomeButtonEnabled(true);
-		
+
 		// Updates the action bar background color
 		this.getActionBar().setBackgroundDrawable(new ColorDrawable(
 			this.configurationRepository.getActionBarBackgroundColor()
 		));
-		
+
 		// Gets the action bar title and sets its color
 		int actionBarTitleId = Resources.getSystem().getIdentifier("action_bar_title", "id", "android");
 		if (actionBarTitleId > 0) {
@@ -1013,6 +1013,21 @@ public class MainActivity extends Activity {
 		// Opens themes fragment
 		this.switchToFragment(fragment, filter);
 	}
+
+    /**
+     * OGT - Browse to TourItem list fragment filtered by Keyword - Recherche rapide
+     *
+     * @param keyword
+     */
+    public void browseToTourItemList(String keyword) {
+
+        // Build theme results filter
+        TourItemListFilter filter = new TourItemListFilter(keyword);
+        TourItemListFragment fragment = new TourItemListFragment();
+
+        // Opens themes fragment
+        this.switchToFragment(fragment, filter);
+    }
 	
 	/**
 	 * Browses to a rendered image

@@ -241,9 +241,11 @@ public class HomeFragment extends FragmentBase {
 			
 			@Override
 			public void onClick(View v) {
-				HomeFragment.this.getMainActivity().browseToSearch(
-					HomeFragment.this.getQuickSearchEditText().getText().toString()
-				);
+				// OGT - Suppression de l'action du bouton de recherche de la page home
+				//HomeFragment.this.getMainActivity().browseToSearch(
+				//	HomeFragment.this.getQuickSearchEditText().getText().toString()
+				//);
+                HomeFragment.this.getMainActivity().browseToTourItemList(HomeFragment.this.getQuickSearchEditText().getText().toString());
 			}
 		});
 		

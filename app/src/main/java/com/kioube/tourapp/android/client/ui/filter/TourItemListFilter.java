@@ -96,12 +96,22 @@ public class TourItemListFilter extends FilterBase {
 		this.theme = theme;
 		this.keyword = keyword;
 	}
-	
+
+    /**
+     * OGT - Constructs a new TourItemListFilter object - Recherche rapide
+     *
+     * @param keyword
+     */
+    public TourItemListFilter(String keyword) {
+        super();
+
+        this.keyword = keyword;
+    }
+
 	/**
 	 * Constructs a new TourItemListFilter object.
 	 * 
-	 * @param geographicalArea
-	 * @param theme
+	 * @param bookmarksOnly
 	 */
 	public TourItemListFilter(Boolean bookmarksOnly) {
 		super();

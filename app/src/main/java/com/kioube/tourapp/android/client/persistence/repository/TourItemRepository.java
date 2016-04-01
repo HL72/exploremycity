@@ -179,6 +179,31 @@ public class TourItemRepository extends RepositoryBase<TourItem> {
 		return result;
 	}
 
+    /**
+     * OGT - Gets the persistent TourItem objects matching the keyword - Recherche rapide
+     *
+     * @param keyword The persistent keyword object used to filter results 
+     *
+     * @return The persistent TourItem objects matching the specified keyword
+     */
+    public List<TourItem> getByFilter(String keyword) {
+        List<TourItem> result = null;
+
+        try {
+            PreparedQuery<TourItem> query = this.getDao().queryBuilder()
+                    .where()
+                    .like(TourItem.NAME_FIELD_NAME, "%" + keyword + "%")
+                    .prepare();
+
+            result = this.getDao().query(query);
+        }
+        catch (SQLException e) {
+            Log.e(LOG_TAG, "Failed to get the persistent TourItem entities");
+        }
+
+        return result;
+    }
+
 	/**
 	 * Gets the bookmarked persistent TourItem objects
 	 * 

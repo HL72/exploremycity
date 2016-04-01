@@ -111,6 +111,12 @@ public class TourItemListFragment extends FragmentBase {
 					);
 				}
 			}
+			//OGT - Test des paramètres de la recherche rapide
+            else if (filter.getKeyword() != null) {
+                this.tourItemList = this.tourItemRepository.getByFilter(
+                        this.getFilter().getKeyword()
+                );
+            }
 			else {
 				Log.e(LOG_TAG, "Invalid TourItemListFilter used to render TourItem objects.");
 			}
