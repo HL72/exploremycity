@@ -170,11 +170,31 @@ public class SearchFragment extends FragmentBase {
 			
 			@Override
 			public void onClick(View v) {
-				SearchFragment.this.getMainActivity().browseToTourItemList(
-					SearchFragment.this.selectedGeographicalArea,
-					SearchFragment.this.selectedTheme, 
-					SearchFragment.this.getKeywordEditText().getText().toString()
-				);
+				if (SearchFragment.this.selectedGeographicalArea == null &&
+						SearchFragment.this.selectedTheme == null) {
+					SearchFragment.this.getMainActivity().browseToTourItemList(
+							SearchFragment.this.getKeywordEditText().getText().toString()
+					);
+				}
+				else if (SearchFragment.this.selectedGeographicalArea == null) {
+					SearchFragment.this.getMainActivity().browseToTourItemList(
+							SearchFragment.this.selectedTheme,
+							SearchFragment.this.getKeywordEditText().getText().toString()
+					);
+				}
+				else if (SearchFragment.this.selectedTheme == null) {
+					SearchFragment.this.getMainActivity().browseToTourItemList(
+							SearchFragment.this.selectedGeographicalArea,
+							SearchFragment.this.getKeywordEditText().getText().toString()
+					);
+				}
+				else {
+					SearchFragment.this.getMainActivity().browseToTourItemList(
+							SearchFragment.this.selectedGeographicalArea,
+							SearchFragment.this.selectedTheme,
+							SearchFragment.this.getKeywordEditText().getText().toString()
+					);
+				}
 			}
 		});
 		
@@ -196,6 +216,7 @@ public class SearchFragment extends FragmentBase {
 		
 		// Sets labels
 		List<String> labels = new ArrayList<String>();
+		labels.add("-");
 		
 		for (GeographicalArea area : this.getGeographicalAreaList()) {
 			labels.add(area.getName());
@@ -230,7 +251,8 @@ public class SearchFragment extends FragmentBase {
 		
 		// Sets labels
 		List<String> labels = new ArrayList<String>();
-		
+		labels.add("-");
+
 		for (Theme theme : this.getThemeList()) {
 			labels.add(theme.getName());
 		}
@@ -245,7 +267,12 @@ public class SearchFragment extends FragmentBase {
 
 			@Override
 			public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-				SearchFragment.this.selectedTheme = SearchFragment.this.getThemeList().get(position);
+				if (position == 0) {
+					SearchFragment.this.selectedTheme = null;
+				}
+				else {
+					SearchFragment.this.selectedTheme = SearchFragment.this.getThemeList().get(position-1);
+				}
 			}
 
 			@Override

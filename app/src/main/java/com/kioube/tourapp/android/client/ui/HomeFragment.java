@@ -184,7 +184,7 @@ public class HomeFragment extends FragmentBase {
 		if (this.quickSearchEditText == null) {
 			this.quickSearchEditText = (EditText) this.getView().findViewById(R.id.quick_search_edit_text);
 		}
-		
+
 		return this.quickSearchEditText;
 	}
 	

@@ -348,7 +348,7 @@ public class MainActivity extends Activity {
 
 		// Updates the action bar background color
 		this.getActionBar().setBackgroundDrawable(new ColorDrawable(
-			this.configurationRepository.getActionBarBackgroundColor()
+				this.configurationRepository.getActionBarBackgroundColor()
 		));
 
 		// Gets the action bar title and sets its color
@@ -938,8 +938,7 @@ public class MainActivity extends Activity {
 			
 			FragmentManager manager = getFragmentManager();
 			boolean fragmentPopped = manager.popBackStackImmediate(backStateName, 0);
-			
-			if (!fragmentPopped) {
+			//if (!fragmentPopped) {
 				FragmentTransaction transaction = manager.beginTransaction();
 				
 				// Sets the transition to use
@@ -978,7 +977,7 @@ public class MainActivity extends Activity {
 				transaction.addToBackStack(backStateName);
 				
 				transaction.commit();
-			}
+			//}
 		}
 	}
 	
@@ -1028,7 +1027,39 @@ public class MainActivity extends Activity {
         // Opens themes fragment
         this.switchToFragment(fragment, filter);
     }
-	
+
+	/**
+	 * OGT - Browse to TourItem list fragment filtered by area and keyword - Filtre tous
+	 *
+	 * @param area
+	 * @param keyword
+	 */
+	public void browseToTourItemList(GeographicalArea area, String keyword) {
+
+		// Build theme results filter
+		TourItemListFilter filter = new TourItemListFilter(area, keyword);
+		TourItemListFragment fragment = new TourItemListFragment();
+
+		// Opens themes fragment
+		this.switchToFragment(fragment, filter);
+	}
+
+	/**
+	 * OGT - Browse to TourItem list fragment filtered by theme and keyword - Filtre tous
+	 *
+	 * @param theme
+	 * @param keyword
+	 */
+	public void browseToTourItemList(Theme theme, String keyword) {
+
+		// Build theme results filter
+		TourItemListFilter filter = new TourItemListFilter(theme, keyword);
+		TourItemListFragment fragment = new TourItemListFragment();
+
+		// Opens themes fragment
+		this.switchToFragment(fragment, filter);
+	}
+
 	/**
 	 * Browses to a rendered image
 	 * 

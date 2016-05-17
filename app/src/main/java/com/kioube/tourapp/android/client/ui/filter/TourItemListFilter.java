@@ -24,6 +24,7 @@ public class TourItemListFilter extends FilterBase {
 	private Theme theme;
 	private Boolean bookmarksOnly = false;
 	private String keyword;
+
 	
 	/* --- Getters & setters --- */
 	
@@ -109,6 +110,31 @@ public class TourItemListFilter extends FilterBase {
     }
 
 	/**
+	 * OGT - Constructs a new TourItemListFilter object - Recherche rapide
+	 *
+	 * @param theme
+	 * @param keyword
+	 */
+	public TourItemListFilter(Theme theme, String keyword) {
+		super();
+
+		this.theme = theme;
+		this.keyword = keyword;
+	}
+
+	/**
+	 * OGT - Constructs a new TourItemListFilter object - Recherche rapide
+	 *
+	 * @param area
+	 * @param keyword
+	 */
+	public TourItemListFilter(GeographicalArea area, String keyword) {
+		super();
+
+		this.geographicalArea = area;
+		this.keyword = keyword;
+	}
+	/**
 	 * Constructs a new TourItemListFilter object.
 	 * 
 	 * @param bookmarksOnly
@@ -122,5 +148,9 @@ public class TourItemListFilter extends FilterBase {
 	/* --- Class operations --- */
 	
 	/* --- Object operations --- */
+
+	public String toString() {
+		return "toString : " + this.keyword;
+	}
 	
 }

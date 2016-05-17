@@ -36,7 +36,7 @@ public class TourItemListFragment extends FragmentBase {
 	
 	private ListView tourItemListView;
 	private TourItemRepository tourItemRepository = new TourItemRepository(this.getActivity());
-	private List<TourItem> tourItemList;
+	private List<TourItem> tourItemList = null;
 	private View view;
 	
 	/* --- Getters and setters --- */
@@ -45,7 +45,9 @@ public class TourItemListFragment extends FragmentBase {
 	 * Gets the fragment filter used to filter theme results
 	 */
 	public TourItemListFilter getFilter() {
+		this.tourItemList = null;
 		return (TourItemListFilter) super.getFilter();
+
 	}
 	
 	/**
@@ -89,8 +91,8 @@ public class TourItemListFragment extends FragmentBase {
 	 * @return The TourItem objects to render depending on the fragment filter
 	 */
 	public List<TourItem> getTourItemList() {
-		
-		if (this.tourItemList == null) {
+
+		//if (this.tourItemList == null) {
 			TourItemListFilter filter = this.getFilter();
 			
 			if (filter.getBookmarksOnly() == true) {
@@ -120,7 +122,7 @@ public class TourItemListFragment extends FragmentBase {
 			else {
 				Log.e(LOG_TAG, "Invalid TourItemListFilter used to render TourItem objects.");
 			}
-		}
+		//}
 		
 		return this.tourItemList;
 	}
