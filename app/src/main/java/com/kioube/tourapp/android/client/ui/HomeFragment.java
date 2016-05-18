@@ -21,8 +21,12 @@ import android.widget.TextView;
 
 import com.kioube.tourapp.android.client.R;
 import com.kioube.tourapp.android.client.domain.GeographicalArea;
+import com.kioube.tourapp.android.client.domain.TourItem;
+import com.kioube.tourapp.android.client.domain.TourItemImage;
 import com.kioube.tourapp.android.client.persistence.repository.ConfigurationRepository;
 import com.kioube.tourapp.android.client.persistence.repository.GeographicalAreaRepository;
+import com.kioube.tourapp.android.client.persistence.repository.TourItemImageRepository;
+import com.kioube.tourapp.android.client.persistence.repository.TourItemRepository;
 
 /**
  * 
@@ -46,6 +50,10 @@ public class HomeFragment extends FragmentBase {
 	private View view;
 	private GeographicalAreaRepository geographicalAreaRepository = new GeographicalAreaRepository(this.getActivity());
 	private List<GeographicalArea> geographicalAreaList;
+	private TourItemRepository tourItemRepository = new TourItemRepository(this.getActivity());
+	private List<TourItem> tourItemList;
+	private TourItemImageRepository tourItemImageRepository = new TourItemImageRepository(this.getActivity());
+	private List<TourItemImage> tourItemImagesList;
 	private TextView headlineTextView;
 	
 	private int currentAreaPosition = 0;
@@ -135,7 +143,16 @@ public class HomeFragment extends FragmentBase {
 		
 		return this.geographicalAreaList;
 	}
-	
+
+	//OGT
+	public List<TourItem> getTourItemList() {
+		if (this.tourItemList == null) {
+			this.tourItemList = this.tourItemRepository.getAll();
+		}
+
+		return this.tourItemList;
+	}
+
 	/**
 	 * Gets the HomeFragment object's navigationHeaderImageView value
 	 * 
@@ -262,17 +279,18 @@ public class HomeFragment extends FragmentBase {
 	 * Setups the area selector
 	 */
 	public void setUpAreaSelector() {
-		if (this.getGeographicalAreaList() != null && this.getGeographicalAreaList().size() > 0)
+		//OGT
+		if (this.getTourItemList() != null && this.getTourItemList().size() > 0)
 		{
 			this.displayArea(0);
-			
+
 			// Sets the left button click event
 			this.getAreaSelectorLeftButton().setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
 					if (HomeFragment.this.currentAreaPosition <= 0) {
-						HomeFragment.this.displayArea(HomeFragment.this.getGeographicalAreaList().size() - 1);
+						HomeFragment.this.displayArea(HomeFragment.this.getTourItemList().size() - 1);
 					}
 					else {
 						HomeFragment.this.displayArea(HomeFragment.this.currentAreaPosition - 1);
@@ -282,10 +300,10 @@ public class HomeFragment extends FragmentBase {
 
 			// Sets the right button click event
 			this.getAreaSelectorRightButton().setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					if (HomeFragment.this.currentAreaPosition >= HomeFragment.this.getGeographicalAreaList().size() - 1) {
+					if (HomeFragment.this.currentAreaPosition >= HomeFragment.this.getTourItemList().size() - 1) {
 						HomeFragment.this.displayArea(0);
 					}
 					else {
@@ -293,16 +311,16 @@ public class HomeFragment extends FragmentBase {
 					}
 				}
 			});
-			
+
 			// Sets the image click event
 			this.getAreaSelectorImage().setOnClickListener(new OnClickListener() {
-				
+
 				@Override
 				public void onClick(View v) {
-					HomeFragment.this.getMainActivity().browseToThemeList(
-						HomeFragment.this.getGeographicalAreaList().get(
-							HomeFragment.this.currentAreaPosition
-						)
+					HomeFragment.this.getMainActivity().browseToTourItem(
+							HomeFragment.this.getTourItemList().get(
+									HomeFragment.this.currentAreaPosition
+							)
 					);
 				}
 			});
@@ -320,22 +338,26 @@ public class HomeFragment extends FragmentBase {
 	public void displayArea(int position) {
 		this.currentAreaPosition = position;
 
-		if (position <= this.getGeographicalAreaList().size() - 1) {
-			GeographicalArea area = this.getGeographicalAreaList().get(position);
-			
-			this.getAreaSelectorTitleTextView().setText(area.getName());
+		//OGT
+		if (position <= this.getTourItemList().size() - 1) {
+			TourItem item = this.getTourItemList().get(position);
+			List<TourItemImage> imageList = this.tourItemImageRepository.getByTourItem(item);
+
+			this.getAreaSelectorTitleTextView().setText(item.getName());
 			this.getAreaSelectorPageTextView().setText(
-				String.format("%d / %d", position + 1, this.getGeographicalAreaList().size())
+					String.format("%d / %d", position + 1, this.getTourItemList().size())
 			);
 
 			// Sets area image
-			if (area.getImage() != null && area.getImage().length() > 0) {
-				
-				String imageBase64 = area.getImage();
-				
+			if (imageList != null && imageList.size() > 0) {
+
+				ImageView imageView = (ImageView) this.getView().findViewById(R.id.picture);
+
+				String imageBase64 = imageList.get(0).getByteCode();
+
 				byte[] imageData = Base64.decode(imageBase64, Base64.NO_WRAP | Base64.NO_PADDING | Base64.URL_SAFE);
-				Bitmap bitmap = BitmapFactory.decodeByteArray(imageData , 0, imageData.length);
-				
+				Bitmap bitmap = BitmapFactory.decodeByteArray(imageData, 0, imageData.length);
+
 				this.getAreaSelectorImage().setImageBitmap(bitmap);
 			}
 		}
